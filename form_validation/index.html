@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Form Validator
+        </title>
+        <link rel="stylesheet" href="./style.css">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5 shadow-lg p-3 mb-5 bg-white rounded">
+                    <h1>Form Validator</h1>
+                    <input type="text" id="username" class="form-control" placeholder="username">
+                    <small id="username_error"></small>
+                    <input type="text" id="email" class="form-control" placeholder="email">
+                    <small id="email_error"></small>
+                    <input type="text" id="password" class="form-control" placeholder="password">
+                    <small id="password_error"></small>
+                    <input type="text" id="cpassword" class="form-control" placeholder="cpassword">
+                    <small id="cpassword_error"></small>
+                    <button class="btn btn-primary" onclick="validate()">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="./index.js"></script>
