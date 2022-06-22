@@ -1,4 +1,4 @@
-var quizdata=[
+const quizdata=[
     {
         question:'Which framework is related to JS?',
         a:'.net',
@@ -31,11 +31,11 @@ var quizdata=[
         d:'none',
         correct : 'b'
     }
-]
+];
 
-var quiz = document.getElementById('quizbody');
-var answer = document.querySelectorAll('ans');
-var question = document.getElementById('que');
+let quiz = document.getElementById('quizbody');
+let answer = document.querySelectorAll('.ans');
+let question = document.getElementById('que');
 
 var options = [];
 for(var ch = 0;ch<4;ch++){
@@ -44,4 +44,41 @@ for(var ch = 0;ch<4;ch++){
     options.push(document.getElementById(`${cc}_value`));
 }
 
-var submit_btn = document.getElementById('submit');
+let submit_btn = document.getElementById('submit');
+
+let currentQuestion = 0;
+let quiz_score = 0;
+
+
+loadquiz();
+
+
+function loadquiz(){
+    
+    deselect();
+    
+    question.innerHTML = quizdata[currentQuestion].question;
+    let ch = 97;
+    options
+    .forEach(option => 
+        option.innerHTML = quizdata[currentQuestion][String.fromCharCode(ch++)]);
+}
+function deselect(){
+    answer.forEach(answer=>answer.checked=false);
+}
+submit_btn.addEventListener('click',()=>{
+    answer.forEach(_answer=>
+        {
+            if(_answer.checked===true && _answer.id===quizdata[currentQuestion].correct){
+                ++quiz_score;
+            }
+    }
+    );
+    ++currentQuestion;
+    
+    if(currentQuestion === quizdata.length){
+        document.getElementById('quizbody').innerHTML = `<h1 class='lastone'>You have scored ${quiz_score}/${quizdata.length}</h1>`;
+    }else{
+        loadquiz();
+    }
+})
