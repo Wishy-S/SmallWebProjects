@@ -8,6 +8,7 @@ $.ajax({
             let tableRow = `<tr> <td>${response.Countries[i].Country}</td> <td>${response.Countries[i].NewConfirmed}</td> <td>${response.Countries[i].TotalConfirmed - response.Countries[i].TotalRecovered}</td> <td>${response.Countries[i].NewRecovered}</td> <td>${response.Countries[i].TotalDeaths}</td></tr>`;
             $('#tbody').append(tableRow);
         }
+        $('#covidtable').DataTable();
     },
     error : function(error){
         console.log(error);
