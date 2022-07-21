@@ -9,7 +9,7 @@ http.createServer(function(request,response){
         response.end('<h1>This is the reponse</h1>');
     }
     if(route === '/user'){
-        let users = ['Sachin','Ronaldo','Messi','Dhoni'];
+        let users = ['Sachin','Ronaldo','Messi','Dhoni','Kohli'];
         response.end(JSON.stringify(users));
     }
 }).listen(port);
